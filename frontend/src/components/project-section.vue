@@ -13,7 +13,7 @@
       </v-col>
       <v-col cols="12" md="6" class="text-center">
         <v-img
-          src="/assets/img/hidden.png"
+          src="/src/assets/img/hidden.png"
           alt="Project Image"
           max-width="300"
           class="mx-auto"

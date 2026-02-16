@@ -1,40 +1,45 @@
 <template>
-  <v-footer color="primary" app>
-    <v-container>
-      <v-row align="center" justify="space-between">
-        <v-col cols="12" sm="6">
-          <span
-            >&#169; R.C.C. <br />New Thinking Technology <br />All rights
-            reserved</span
-          >
-        </v-col>
-        <v-col cols="12" sm="6" class="text-right">
-          <v-btn
-            icon
-            href="https://www.linkedin.com/in/roberto-carcamo-colivoro-0344b118a/"
-          >
-            <v-icon>mdi-linkedin</v-icon>
-          </v-btn>
-          <v-btn icon href="https://github.com/Robbhedonic">
-            <v-icon>mdi-github</v-icon>
-          </v-btn>
-          <v-btn icon href="https://www.instagram.com/">
-            <v-icon>mdi-instagram</v-icon>
-          </v-btn>
+  <v-footer color="primary" padless>
+    <v-container class="text-center py-6 text-white">
+      <v-row justify="center" class="mb-4">
+        <v-col cols="12">
+          <v-avatar size="80" class="mb-2">
+            <v-img src="/src/assets/img/logo.jpeg" alt="logo" />
+          </v-avatar>
+          <div class="font-weight-bold text-h6">New Thinking Technology</div>
+          <div class="text-subtitle-2">Roberto C.C. — Frontend Developer</div>
         </v-col>
       </v-row>
+
+      <v-row justify="center" class="mb-4">
+        <v-btn
+          v-for="social in socialLinks"
+          :key="social.icon"
+          :href="social.url"
+          target="_blank"
+          icon
+          class="mx-2"
+          variant="text"
+          color="white"
+        >
+          <v-icon>{{ social.icon }}</v-icon>
+        </v-btn>
+      </v-row>
+
+      <div class="text-caption">
+        &copy; {{ new Date().getFullYear() }} R.C.C. — All rights reserved
+      </div>
     </v-container>
   </v-footer>
 </template>
 
-<script>
-export default {
-  name: "FooterPage",
-};
+<script lang="ts" setup>
+const socialLinks = [
+  {
+    icon: 'mdi-linkedin',
+    url: 'https://www.linkedin.com/in/roberto-carcamo-colivoro-0344b118a/',
+  },
+  { icon: 'mdi-github', url: 'https://github.com/Robbhedonic' },
+  { icon: 'mdi-instagram', url: 'https://www.instagram.com/' },
+];
 </script>
-
-<style scoped>
-.v-footer {
-  padding: 20px 0;
-}
-</style>
